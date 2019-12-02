@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+<!-- {% load static %} -->
+{% block content %}
+  
+  <div class="site-wrap">
+    
+    <header class="site-navbar py-1" role="banner">
+      <div class="container">
+        <div class="row align-items-center">
+          
+          <div class="col-6 col-xl-2">
+            <h1 class="mb-0"><a href="/" class="text-black h2 mb-0">Travelers</a></h1>
+          </div>
+          <div class="col-10 col-md-8 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right text-lg-center" role="navigation">
+
+              <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                <li><a href="/">Home</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="blog">Blog</a></li>
+                <li><a href="contact">Contact</a></li>
+                <li class="active"><a href="register">Register</a></li>
+                <li><a href="login">Log in</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="col-6 col-xl-2 text-right">
+            <div class="d-none d-xl-inline-block">
+              <ul class="site-menu js-clone-nav ml-auto list-unstyled d-flex text-right mb-0" data-class="social">
+                <li>
+                  <a href="#" class="pl-0 pr-3 text-black"><span class="icon-tripadvisor"></span></a>
+                </li>
+                <li>
+                  <a href="#" class="pl-3 pr-3 text-black"><span class="icon-twitter"></span></a>
+                </li>
+                <li>
+                  <a href="#" class="pl-3 pr-3 text-black"><span class="icon-facebook"></span></a>
+                </li>
+                <li>
+                  <a href="#" class="pl-3 pr-3 text-black"><span class="icon-instagram"></span></a>
+                </li>
+                
+              </ul>
+            </div>
+
+            <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+          </div>
+
+        </div>
+      </div>
+      
+    </header>
+
+
+
+    <div class="site-section bg-light"  >
+      <div class="container" >
+        <div class="row">
+          <div class="col-md-7 mb-5" >
+            <form action="register" method="post" class="p-5 bg-white" >
+              {% csrf_token %}
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label class="text-black" for="fname">First Name</label>
+                  <input type="text" name="fname" class="form-control">
+                </div>
+                <div class="col-md-6">
+                  <label class="text-black" for="lname">Last Name</label>
+                  <input type="text" name="lname" class="form-control">
+                </div>
+              </div>
+
+              <div class="row form-group">  
+                    <div class="col-md-12">
+                      <label class="text-black" for="username">username</label> 
+                      <input type="username" name="username" class="form-control">
+                    </div>
+                </div>
+
+              <div class="row form-group">  
+                <div class="col-md-12">
+                  <label class="text-black" for="email">Email</label> 
+                  <input type="email" name="email" class="form-control">
+                </div>
+              </div>
+
+              <div class="row form-group">  
+                    <div class="col-md-12">
+                      <label class="text-black" for="password">Password</label> 
+                      <input type="password" name="password1" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row form-group">  
+                        <div class="col-md-12">
+                          <label class="text-black" for="password">Confirm Password</label> 
+                          <input type="password" name="password2" class="form-control">
+                        </div>
+                    </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <input type="submit" value="create account" class="btn btn-primary py-2 px-4 text-white">
+                </div>
+              </div>
+
+            </form>
+            {% if messages %}
+            <div>
+            {% for message in messages %}
+            <h3>{{message}}</h3>
+            {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+        </div> 
+      </div>
+    </div>
+
+    
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="mb-5">
+              <h3 class="footer-heading mb-4">About Travelers</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe pariatur reprehenderit vero atque, consequatur id ratione, et non dignissimos culpa? Ut veritatis, quos illum totam quis blanditiis, minima minus odio!</p>
+            </div>
+
+            
+            
+          </div>
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="row mb-5">
+              <div class="col-md-12">
+                <h3 class="footer-heading mb-4">Navigations</h3>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <ul class="list-unstyled">
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Destination</a></li>
+                  <li><a href="#">Services</a></li>
+                  <li><a href="#">About</a></li>
+                </ul>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <ul class="list-unstyled">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">Discounts</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <div class="mb-5">
+              <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+              <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+              <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+              <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+            </div>
+
+          </div>
+          
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  {% endblock %}
